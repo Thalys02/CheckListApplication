@@ -21,8 +21,6 @@ namespace CheckListApplication
         public void ConfigureServices(IServiceCollection services)
         {
 
-            //services.AddOdataSetup();
-
             services.AddDependecyInjection(Configuration);
 
             services.AddDatabaseSetup(Configuration);
@@ -56,8 +54,6 @@ namespace CheckListApplication
             });
 
             app.AddSwaggerConfig();
-
-            //app.AddOdataConfig();
 
         }
     }

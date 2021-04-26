@@ -1,8 +1,6 @@
 ﻿using AutoMapper;
 using CheckListApplication.Api.Controllers.Tarefa.DTOs;
 using CheckListApplication.Api.Infrastructure.Data.Context;
-using Microsoft.AspNet.OData;
-using Microsoft.AspNet.OData.Routing;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -11,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace CheckListApplication.Api.Controllers.Tarefa
 {
-    //[ODataRoutePrefix("Tarefa")]
+
     [Route("Tarefa")]
     public class TarefaController : ControllerBase
     {
@@ -27,13 +25,13 @@ namespace CheckListApplication.Api.Controllers.Tarefa
         [HttpGet]
         public IActionResult Obter()
         {
-            return Ok(context.Set<Entities.Tarefa>().AsNoTracking().AsQueryable());
+            return Ok(context.Set<Entities.Tarefa>().AsNoTracking());
         }
 
         [HttpGet("{id}")]
         public IActionResult Obter(Guid id)
         {
-            return Ok(context.Set<Entities.Tarefa>().AsNoTracking().Where(w => w.Id == id).AsQueryable());
+            return Ok(context.Set<Entities.Tarefa>().AsNoTracking().Where(w => w.Id == id));
         }
 
 
