@@ -7,6 +7,7 @@ namespace CheckListApplication.Api.Entities
     {
         public string Titulo { get; set; }
         public string Usuario { get; set; }
+        public int Protocolo { get; set; }
         public ICollection<TarefaItens> Itens { get; set; } = new List<TarefaItens>();
     }
 }

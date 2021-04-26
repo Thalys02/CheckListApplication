@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
 using CheckListApplication.Api.Controllers.Tarefa.DTOs;
 using CheckListApplication.Api.Infrastructure.Data.Context;
+using Microsoft.AspNet.OData;
+using Microsoft.AspNet.OData.Routing;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -9,6 +11,7 @@ using System.Threading.Tasks;
 
 namespace CheckListApplication.Api.Controllers.Tarefa
 {
+    //[ODataRoutePrefix("Tarefa")]
     [Route("Tarefa")]
     public class TarefaController : ControllerBase
     {
@@ -25,6 +28,12 @@ namespace CheckListApplication.Api.Controllers.Tarefa
         public IActionResult Obter()
         {
             return Ok(context.Set<Entities.Tarefa>().AsNoTracking().AsQueryable());
+        }
+
+        [HttpGet("{id}")]
+        public IActionResult Obter(Guid id)
+        {
+            return Ok(context.Set<Entities.Tarefa>().AsNoTracking().Where(w => w.Id == id).AsQueryable());
         }
 
 
@@ -45,9 +54,9 @@ namespace CheckListApplication.Api.Controllers.Tarefa
         public virtual async Task<IActionResult> Atualizar([FromBody] TarefaUpdateDTO dto)
         {
             var entity = await context.Tarefa.FirstOrDefaultAsync(f => f.Id == dto.Id);
-            
+
             entity.DataAlteracao = DateTime.Now;
-            
+
             mapper.Map(dto, entity);
 
             await context.SaveChangesAsync();

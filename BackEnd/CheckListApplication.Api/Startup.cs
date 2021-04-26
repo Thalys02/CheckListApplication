@@ -20,6 +20,9 @@ namespace CheckListApplication
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+            //services.AddOdataSetup();
+
             services.AddDependecyInjection(Configuration);
 
             services.AddDatabaseSetup(Configuration);
@@ -30,7 +33,7 @@ namespace CheckListApplication
 
             services.AddSwaggerSetup();
 
-            services.AddControllers();
+            services.AddHttpClient();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -53,6 +56,9 @@ namespace CheckListApplication
             });
 
             app.AddSwaggerConfig();
+
+            //app.AddOdataConfig();
+
         }
     }
 }

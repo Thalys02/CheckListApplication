@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
 using CheckListApplication.Api.Controllers.TarefaItens.DTOs;
 using CheckListApplication.Api.Infrastructure.Data.Context;
+using Microsoft.AspNet.OData;
+using Microsoft.AspNet.OData.Routing;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -9,6 +11,7 @@ using System.Threading.Tasks;
 
 namespace CheckListApplication.Api.Controllers.TarefaItens
 {
+    //[ODataRoutePrefix("TarefaItens")]
     [Route("TarefaItens")]
     public class TarefaItensController : ControllerBase
     {
