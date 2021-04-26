@@ -1,0 +1,92 @@
+.checkList-container{
+    grid-template-columns: auto;
+    margin-top: 4rem;
+    display: grid;
+    grid-gap: 2rem;
+}
+.checkList-element{
+    grid-template-columns: 60rem 5rem;
+    padding: 2rem;
+    display: grid;
+    border-width: 5px;
+    border-radius: 5px;
+    border-top-style: solid;
+    border-color: #9E9E9E;
+    background-color: #FFFFFF;
+    margin-left: 2rem;
+    width: 67rem;
+    height: 14rem;
+    cursor: pointer;
+}
+
+.button-edit{
+    width: 0;
+    height: 0;
+    border:0;
+    color: #898989;
+    display: inline-block;
+    font-size: 18px;
+    line-height: 18px;
+    transition: filter 0.2s;
+}
+.button-edit:hover{
+    filter: brightness(90%);
+    color: orange;
+}
+.button-close{
+    width: 0;
+    height: 0;
+    border:0;
+    color: #898989;
+    display: inline-block;
+    font-size: 18px;
+    line-height: 18px;
+    transition: filter 0.2s;
+}
+.button-close:hover{
+    filter: brightness(90%);
+    color: red;
+}
+.protocolo-span{
+    font-weight: 300;
+    color: #9E9E9E;
+    padding-left: 1rem;
+}
+
+.button-add-checklist{
+    border: 0;
+    color: #FFFFFF;
+    display: inline-block;
+    background: #222943;
+    border-radius: 4px;
+    margin-left: 2rem;
+    width: 67rem;
+    height: 3rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+.checklist-count{
+    padding-top: 2rem;
+    padding-left: 5rem;
+    color: #222943;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.checkList-description h3{
+    word-break: break-all;
+    font-weight: 700;
+    color: #222943;
+}
+.usuario-span{
+    color: #9E9E9E;
+    font-weight: 400;
+    position: absolute;
+    padding-top:0.5rem;
+}
+.dataCriacao-span{
+    color: #9E9E9E;
+    font-weight: 400;
+    position: absolute;
+    padding-top:1rem;
+}
