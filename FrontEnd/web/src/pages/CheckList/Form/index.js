@@ -22,7 +22,6 @@ function CheckListForm({showModal,closeModal,fetchTarefas,loading}){
   };
 
   async function handleSave() {
-    debugger
     const data = {
       id: params.id ? params.id : "",
       titulo,
@@ -58,7 +57,6 @@ function CheckListForm({showModal,closeModal,fetchTarefas,loading}){
     
   }
   useEffect(() => {
-    debugger
     if (params.id && params.id !== "itens") {
       setLabel("Editar Tarefa");
 
@@ -89,7 +87,7 @@ function CheckListForm({showModal,closeModal,fetchTarefas,loading}){
           {error}
         </Alert>
         <Form.Group>
-          <Form.Label className="d-block">*Titulo Tarefa</Form.Label>
+          <Form.Label className="d-block">*Titulo</Form.Label>
           <Form.Control
             value={titulo}
             onChange={(e) => setTitulo(e.target.value)}
@@ -102,7 +100,7 @@ function CheckListForm({showModal,closeModal,fetchTarefas,loading}){
           </div>
         </Form.Group>
         <Form.Group>
-          <Form.Label>*Usuario</Form.Label>
+          <Form.Label>*Usuário</Form.Label>
           <Form.Control
             value={usuario}
             onChange={(e) => setUsuario(e.target.value)}

@@ -18,7 +18,13 @@
     height: 14rem;
     cursor: pointer;
 }
-
+.title-header{
+    justify-content: center;
+    align-content: center;
+    display: flex;
+    margin-top: -3rem;
+    color: #F2F2F2;
+}
 .button-edit{
     width: 0;
     height: 0;
@@ -33,7 +39,7 @@
     filter: brightness(90%);
     color: orange;
 }
-.button-close{
+.button-remove{
     width: 0;
     height: 0;
     border:0;
@@ -43,7 +49,7 @@
     line-height: 18px;
     transition: filter 0.2s;
 }
-.button-close:hover{
+.button-remove:hover{
     filter: brightness(90%);
     color: red;
 }

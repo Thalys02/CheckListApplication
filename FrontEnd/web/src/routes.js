@@ -8,9 +8,9 @@ export default  function Routes(){
   return (
     <BrowserRouter>
       <Switch>
-        <Route exact path="/"component={CheckList} />
-        <Route path="/:id" component={CheckList} />
-        <Route exact path="/itens/:id" component={CheckListItens}/>
+      <Route  path="/" exact component={CheckList} />
+        <Route path="/:id" exact component={CheckList} />
+        <Route path="/itens/:id" exact component={CheckListItens} />
       </Switch>
     </BrowserRouter>
   );

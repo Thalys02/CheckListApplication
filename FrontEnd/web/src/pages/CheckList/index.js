@@ -70,7 +70,6 @@ function CheckList(){
     history.push("/");
   }
   function openEditItems(tarefaId){
-    debugger
     history.push(`/itens/${tarefaId}`)
   }
 
@@ -79,69 +78,78 @@ function CheckList(){
   }, []);
 
   return (
-    <section>
-      <div className="checklist-count">Tarefas ({tarefas.length})</div>
-      <div className="checkList-container">
-        {tarefas.map((tarefa) => (
-          <div title="Editar tarefa" className="checkList-element">
-            <div
-              id={tarefa.id}
-              className="checkList-description"
+    <>
+      <div className="title-header">
+        <h1>Desafio</h1>
+      </div>
+      <section>
+        <div className="checklist-count">Tarefas ({tarefas.length})</div>
+        <div className="checkList-container">
+          {tarefas.map((tarefa,index) => (
+            <div key={index}
+              title="Editar tarefa"
+              className="checkList-element"
               onClick={() => openEditItems(tarefa.id)}
             >
-              <h3>
-                {tarefa.titulo}
-                <span className="protocolo-span">#00{tarefa.protocolo}</span>
-              </h3>
+              <div id={tarefa.id} className="checkList-description">
+                <h3>
+                  {tarefa.titulo}
+                  <span className="protocolo-span">
+                    {tarefa.protocolo <= 10
+                      ? "#00" + tarefa.protocolo
+                      : "#0" + tarefa.protocolo}
+                  </span>
+                </h3>
 
-              <span className="usuario-span">
-                <FiUser />
-                {tarefa.usuario}
-              </span>
-              <br />
-              <span className="dataCriacao-span">
-                <IoIosTimer />
-                {formatDate(tarefa.dataCriacao)}
-              </span>
+                <span className="usuario-span">
+                  <FiUser />
+                  {tarefa.usuario}
+                </span>
+                <br />
+                <span className="dataCriacao-span">
+                  <IoIosTimer />
+                  {formatDate(tarefa.dataCriacao)}
+                </span>
+              </div>
+              <button
+                title="Remover tarefa"
+                className="button-remove"
+                onClick={() => openModalExclusao(tarefa)}
+              >
+                <FiX />
+              </button>
+              <div></div>
+              <button
+                title="Editar tarefa"
+                className="button-edit"
+                onClick={() => openUpdateTarefa(tarefa.id)}
+              >
+                <FiEdit />
+              </button>
             </div>
-            <button
-              title="Remover tarefa"
-              className="button-close"
-              onClick={() => openModalExclusao(tarefa)}
-            >
-              <FiX />
-            </button>
-            <div></div>
-            <button
-              title="Editar tarefa"
-              className="button-edit"
-              onClick={() => openUpdateTarefa(tarefa.id)}
-            >
-              <FiEdit />
-            </button>
-          </div>
-        ))}
-      </div>
-      <footer>
-        <button className="button-add-checklist" onClick={openModalAddTarefa}>
-          NOVO CHECKLIST
-        </button>
-      </footer>
+          ))}
+        </div>
+        <footer>
+          <button className="button-add-checklist" onClick={openModalAddTarefa}>
+            NOVO CHECKLIST
+          </button>
+        </footer>
 
-      <CheckListForm
-        showModal={show}
-        closeModal={close}
-        fetchTarefas={fetchTarefas}
-        loading={loading}
-      />
+        <CheckListForm
+          showModal={show}
+          closeModal={close}
+          fetchTarefas={fetchTarefas}
+          loading={loading}
+        />
 
-      <CheckListDeleteModal
-        DeletarTarefa={DeleteTarefa}
-        loading={loading}
-        showExcluir={showExcluir}
-        closeModal={closeModalExcluir}
-      />
-    </section>
+        <CheckListDeleteModal
+          DeletarTarefa={DeleteTarefa}
+          loading={loading}
+          showExcluir={showExcluir}
+          closeModal={closeModalExcluir}
+        />
+      </section>
+    </>
   );
 }
 

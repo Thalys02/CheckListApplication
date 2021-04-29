@@ -1,0 +1,174 @@
+.title-header{
+    justify-content: center;
+    align-content: center;
+    display: flex;
+    margin-top: -3rem;
+    color: #F2F2F2;
+    width: 38rem;
+}
+.arrow-left{
+    width: 25px;
+    height: 25px;
+    color: #F2F2F2;
+    margin-top: 0.9rem;
+}
+.arrow-left:hover{
+    color: #007bff;
+}
+
+.title-itens{
+    grid-template-columns: 4rem 5rem;
+    display: grid;
+}
+.check-square{
+    width: 25px;
+    height: 25px;
+    margin-left: 1rem;
+    margin-top: 0.4rem;
+}
+
+.check-list-bar{
+    flex: 1;
+    height: 0.5rem;
+    border-radius: 4px;
+    background: #fff;
+    margin: 0 1.5rem;
+    position: relative;
+    width: 64rem;
+}
+.progress-bar{
+    height: 4px;
+    border-radius: 4px;
+    height: 0.5rem;
+    background: #222943 !important;
+}
+.current-bar{
+    transform: translateX(-50%);
+    margin-left: 65.7rem;
+    position: absolute;
+    margin-top: -1.1rem;
+}
+
+.button-delete-checklistIten{
+    border: 0;
+    color: #222943 !important;
+    display: inline-block;
+    background:#E0E0E0;
+    border: 2px solid #222943;
+    border-radius: 4px;
+    margin-left: 2rem;
+    width: 33rem;
+    height: 3rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+.button-save-checklistIten{
+    border: 0;
+    color: #FFFFFF;
+    display: inline-block;
+    background: #222943;
+    border-radius: 4px;
+    margin-left: 2rem;
+    width: 33rem;
+    height: 3rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+
+.button-remove-tarefaItem{
+    padding-left: 5rem;
+    width: 0;
+    height: 0;
+    border:0;
+    color: #898989;
+    display: inline-block;
+    font-size: 18px;
+    line-height: 18px;
+    transition: filter 0.2s;
+}
+.button-remove-tarefaItem:hover{
+    filter: brightness(90%);
+    color: red;
+}
+
+/* CheckBox styles */
+.control {
+    font-family: arial;
+    display: block;
+    position: relative;
+    padding-left: 38px;
+    margin-bottom: 17px;
+    padding-top: 1px;
+    cursor: pointer;
+    font-size: 17px;
+}
+    .control input {
+        position: absolute;
+        z-index: -1;
+        opacity: 0;
+    }
+.control_indicator {
+    position: absolute;
+    top: 2px;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background: #ffffff;
+    border: 1px solid #222943;
+    border-radius: 2px;
+}
+.control:hover input ~ .control_indicator,
+.control input:focus ~ .control_indicator {
+    background: #dad3d3;
+}
+
+.control input:checked ~ .control_indicator {
+    background: #222943;
+}
+
+.control input:disabled ~ .control_indicator {
+    background: #e6e6e6;
+    opacity: 0.6;
+    pointer-events: none;
+}
+.control_indicator:after {
+    box-sizing: unset;
+    content: '';
+    position: absolute;
+    display: none;
+}
+.control input:checked ~ .control_indicator:after {
+    display: block;
+}
+.control-checkbox .control_indicator:after {
+    left: 5px;
+    top: 0px;
+    width: 8px;
+    height: 12px;
+    border: solid #ffffff;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.control-checkbox input + .control_indicator::before {
+    animation: s-ripple 250ms ease-out;
+}
+.control-checkbox input:checked + .control_indicator::before {
+    animation-name: s-ripple-dup;
+}
+
+.control-group{
+    margin-left: 1.4rem;
+    margin-top: 2rem;
+    grid-template-columns: 60rem 10rem;
+    display: grid;
+}
+
+
+.add-item{
+    padding: 16px;
+    margin-left: 0.5rem;
+    margin-right: 2rem;
+    border-radius: 4px;
+}

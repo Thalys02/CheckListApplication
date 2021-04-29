@@ -8,7 +8,7 @@ function App() {
   
   return (
     <ToastProvider autoDismiss={true} autoDismissTimeout={2000}>
-      <Routes />;
+      <Routes />
     </ToastProvider>
   ); 
 }

@@ -7,7 +7,8 @@ namespace CheckListApplication.Api.Entities
     {
         public Guid TarefaId { get; set; }
         public string Descricao { get; set; }
-        
+        public bool Concluido { get; set; }
+
         public Tarefa Tarefa { get; set; }
     }
 }

@@ -4,14 +4,16 @@ using CheckListApplication.Api.Infrastructure.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CheckListApplication.Api.Migrations
 {
     [DbContext(typeof(CheckListContext))]
-    partial class CheckListContextModelSnapshot : ModelSnapshot
+    [Migration("20210429022442_AdicionadoCampoConcluido")]
+    partial class AdicionadoCampoConcluido
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

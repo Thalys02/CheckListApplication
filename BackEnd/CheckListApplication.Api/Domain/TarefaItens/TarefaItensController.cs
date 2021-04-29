@@ -4,6 +4,7 @@ using CheckListApplication.Api.Infrastructure.Data.Context;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace CheckListApplication.Api.Controllers.TarefaItens
@@ -27,6 +28,22 @@ namespace CheckListApplication.Api.Controllers.TarefaItens
             return Ok(context.Set<Entities.TarefaItens>().AsNoTracking());
         }
 
+        [HttpGet("{tarefaId}")]
+        public IActionResult Obter(Guid tarefaId)
+        {
+            return Ok(context.Set<Entities.TarefaItens>().Include(i => i.Tarefa)
+                                                         .Where(w => w.TarefaId == tarefaId)
+                                                         .Select(tarefaItem=>  new
+                                                         {
+                                                             tarefaItem.Id,
+                                                             tarefaItem.Descricao,
+                                                             tarefaItem.Concluido,
+                                                             tarefaId = tarefaItem.Tarefa.Id,
+                                                             tarefaTitulo = tarefaItem.Tarefa.Titulo,
+                                                             tarefaProtocolo = tarefaItem.Tarefa.Protocolo
+                                                         })
+                                                         .AsNoTracking());
+        }
 
         [HttpPost("Criar")]
         public virtual async Task<IActionResult> Criar([FromBody] TarefaItensCreateDTO dto)
@@ -61,6 +78,17 @@ namespace CheckListApplication.Api.Controllers.TarefaItens
             var entity = await context.Set<Entities.TarefaItens>().FindAsync(id);
 
             context.Remove(entity);
+
+            await context.SaveChangesAsync();
+
+            return Ok();
+        }
+        [HttpDelete("RemoveAllItens/{tarefaId}")]
+        public virtual async Task<IActionResult> RemoveAllItens(Guid tarefaId)
+        {
+            var entity = await context.Set<Entities.TarefaItens>().Where(w => w.TarefaId == tarefaId).ToListAsync();
+
+            context.RemoveRange(entity);
 
             await context.SaveChangesAsync();
 
