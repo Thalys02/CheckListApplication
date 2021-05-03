@@ -11,16 +11,20 @@ export class CheckListItensService {
     return baseApi.delete(`TarefaItens/RemoveAllItens/${tarefaId}`)
   }
 
-//   static create(data) {
-//     return baseApi.post("Tarefa/Criar", data);
-//   }
+  static create(data) {
+    return baseApi.post("TarefaItens/Criar", data);
+  }
   
-//   static update(data){
-//     return baseApi.put("Tarefa/Atualizar", data);
-//   }
+  static update(data){
+    return baseApi.put("TarefaItens/Atualizar", data);
+  }
 
-//   static delete(tarefaId){
-//     return baseApi.delete(`Tarefa/Remover/${tarefaId}`);
-//   }
+  static updateConclusionItem(data){
+    return baseApi.put("TarefaItens/AtualizarConclusaoItem", data);
+  }
+
+  static delete(tarefaItemId){
+    return baseApi.delete(`TarefaItens/Remover/${tarefaItemId}`);
+  }
 
 }

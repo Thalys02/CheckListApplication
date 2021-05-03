@@ -34,7 +34,7 @@ function CheckListForm({showModal,closeModal,fetchTarefas,loading}){
         addToast("Tarefa atualizada com sucesso.", { appearance: "success" });
         resetFields();
       } catch (error) {
-        addToast("Ocorreu um erro na atualização da tarefa.", {
+        addToast(error.response.data.validacaoErros[0], {
           appearance: "error",
         });
       } finally {
@@ -47,7 +47,7 @@ function CheckListForm({showModal,closeModal,fetchTarefas,loading}){
         addToast("Tarefa criada com sucesso.", { appearance: "success" });
         resetFields();
       } catch (error) {
-        addToast("Ocorreu um erro na criação da tarefa.", {
+        addToast(error.response.data.validacaoErros[0], {
           appearance: "error",
         });
       } finally {
@@ -114,10 +114,10 @@ function CheckListForm({showModal,closeModal,fetchTarefas,loading}){
         </Form.Group>
       </Modal.Body>
       <Modal.Footer>
-        <Button onClick={closeModal} variant="secondary">
+        <Button onClick={closeModal} className="button-option-cancel">
           Cancelar
         </Button>
-        <Button onClick={handleSave} variant="success">
+        <Button onClick={handleSave} className="button-option-save">
           {!loading ? "Salvar" : <Spinner animation="border" />}
         </Button>
       </Modal.Footer>

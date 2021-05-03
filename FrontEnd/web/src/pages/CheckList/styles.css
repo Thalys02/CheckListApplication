@@ -16,7 +16,6 @@
     margin-left: 2rem;
     width: 67rem;
     height: 14rem;
-    cursor: pointer;
 }
 .title-header{
     justify-content: center;
@@ -24,6 +23,9 @@
     display: flex;
     margin-top: -3rem;
     color: #F2F2F2;
+}
+.chalenge{
+    margin-left: 31rem !important;
 }
 .button-edit{
     width: 0;
@@ -71,6 +73,9 @@
     margin-top: 1rem;
     margin-bottom: 1rem;
 }
+.button-add-checklist:hover{
+    background: #28304e;
+}
 .checklist-count{
     padding-top: 2rem;
     padding-left: 5rem;
@@ -84,6 +89,9 @@
     font-weight: 700;
     color: #222943;
 }
+.checkList-description{
+    cursor: pointer;
+}
 .usuario-span{
     color: #9E9E9E;
     font-weight: 400;
@@ -95,4 +103,46 @@
     font-weight: 400;
     position: absolute;
     padding-top:1rem;
+}
+
+.button-option-yes{
+    background-color: #222943 !important;
+    color: #FFFFFF !important;
+    font-weight: 700 !important;
+    border: 0 !important;
+}
+
+.button-option-yes:hover{
+    filter: brightness(70%) !important;
+}
+
+.button-option-no{
+    background-color: #FFFFFF !important;
+    color: #222943 !important;
+    font-weight: 700 !important;
+    border-color: #222943 !important;
+}
+.button-option-no:hover{
+    filter: brightness(70%) !important;
+}
+
+.button-option-save{
+    background-color: #222943 !important;
+    color: #FFFFFF !important;
+    font-weight: 700 !important;
+    border: 0 !important;
+}
+
+.button-option-save:hover{
+    filter: brightness(70%) !important;
+}
+
+.button-option-cancel{
+    background-color: #FFFFFF !important;
+    color: #222943 !important;
+    font-weight: 700 !important;
+    border-color: #222943 !important;
+}
+.button-option-cancel:hover{
+    filter: brightness(70%) !important;
 }

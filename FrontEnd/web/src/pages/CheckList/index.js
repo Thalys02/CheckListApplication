@@ -30,6 +30,7 @@ function CheckList(){
       const response = await CheckListService.findAll();
       setTarefas(response.data);
     } catch (error) {
+      
       addToast("Ocorreu um error ao retornar as tarefas.", {
         appearance: "error",
       });
@@ -80,18 +81,19 @@ function CheckList(){
   return (
     <>
       <div className="title-header">
-        <h1>Desafio</h1>
+        <h1 className="chalenge">Desafio</h1>
       </div>
       <section>
         <div className="checklist-count">Tarefas ({tarefas.length})</div>
         <div className="checkList-container">
-          {tarefas.map((tarefa,index) => (
-            <div key={index}
-              title="Editar tarefa"
-              className="checkList-element"
-              onClick={() => openEditItems(tarefa.id)}
-            >
-              <div id={tarefa.id} className="checkList-description">
+          {tarefas.map((tarefa, index) => (
+            <div key={index} className="checkList-element">
+              <div
+                id={tarefa.id}
+                title="Editar tarefa"
+                className="checkList-description"
+                onClick={() => openEditItems(tarefa.id)}
+              >
                 <h3>
                   {tarefa.titulo}
                   <span className="protocolo-span">

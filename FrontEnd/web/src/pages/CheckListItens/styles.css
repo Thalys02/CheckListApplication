@@ -1,10 +1,11 @@
 .title-header{
-    justify-content: center;
-    align-content: center;
-    display: flex;
+    grid-template-columns: 2rem 70rem;
+    justify-content: flex-start;
+    align-content: flex-start;
+    display: grid;
     margin-top: -3rem;
     color: #F2F2F2;
-    width: 38rem;
+    margin-left: 1rem;
 }
 .arrow-left{
     width: 25px;
@@ -62,6 +63,9 @@
     margin-top: 1rem;
     margin-bottom: 1rem;
 }
+.button-delete-checklistIten:hover{
+    background:#cfcdcd;
+}
 .button-save-checklistIten{
     border: 0;
     color: #FFFFFF;
@@ -74,10 +78,12 @@
     margin-top: 1rem;
     margin-bottom: 1rem;
 }
-
+.button-save-checklistIten:hover{
+    background:#28304e;
+}
 
 .button-remove-tarefaItem{
-    padding-left: 5rem;
+    padding-left: 1rem;
     width: 0;
     height: 0;
     border:0;
@@ -158,10 +164,11 @@
     animation-name: s-ripple-dup;
 }
 
+
 .control-group{
     margin-left: 1.4rem;
     margin-top: 2rem;
-    grid-template-columns: 60rem 10rem;
+    grid-template-columns: 2rem 62rem 5rem;
     display: grid;
 }
 
@@ -171,4 +178,16 @@
     margin-left: 0.5rem;
     margin-right: 2rem;
     border-radius: 4px;
+}
+
+.add-item input{
+    background-color: #dedfe0;
+}
+
+.input-tarefaItem-description input{
+    border: 0;
+    background-color: #e5e5e5;
+    color: #212121;
+    font-weight: 400;
+    margin-top:-0.5rem;
 }

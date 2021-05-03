@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using CheckListApplication.Api.Controllers.TarefaItens.DTOs;
+using CheckListApplication.Api.Domain.TarefaItens.DTOs;
 using CheckListApplication.Api.Infrastructure.Data.Context;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -61,11 +62,33 @@ namespace CheckListApplication.Api.Controllers.TarefaItens
         [HttpPut("Atualizar")]
         public virtual async Task<IActionResult> Atualizar([FromBody] TarefaItensUpdateDTO dto)
         {
+            
+
+            foreach (var item in dto.Itens)
+            {
+                var entity = await context.TarefaItens.FirstOrDefaultAsync(f => f.Id == item.Id);
+                entity.DataAlteracao = DateTime.Now;
+                
+                entity.Descricao = item.Descricao;
+
+                mapper.Map(dto, entity);
+                
+                context.UpdateRange(entity);
+            }
+
+            await context.SaveChangesAsync();
+
+            return Ok();
+        }
+
+        [HttpPut("AtualizarConclusaoItem")]
+        public virtual async Task<IActionResult> AtualizarConclusaoItem([FromBody] TarefaItensAtualizarConclusaoDTO dto)
+        {
             var entity = await context.TarefaItens.FirstOrDefaultAsync(f => f.Id == dto.ItemId);
 
             entity.DataAlteracao = DateTime.Now;
 
-            mapper.Map(dto, entity);
+            entity.Concluido = dto.Concluido;
 
             await context.SaveChangesAsync();
 
@@ -83,6 +106,7 @@ namespace CheckListApplication.Api.Controllers.TarefaItens
 
             return Ok();
         }
+
         [HttpDelete("RemoveAllItens/{tarefaId}")]
         public virtual async Task<IActionResult> RemoveAllItens(Guid tarefaId)
         {

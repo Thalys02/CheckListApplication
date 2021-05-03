@@ -30,6 +30,8 @@ namespace CheckListApplication
 
             services.AddFluentValidationSetup();
 
+            services.AddMiddlewareSetup();
+
             services.AddSwaggerSetup();
 
             services.AddHttpClient();

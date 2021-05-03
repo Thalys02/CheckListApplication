@@ -3,17 +3,17 @@ import { Modal, Button, Spinner } from "react-bootstrap";
 
 import "./styles.css";
 
-function CheckListItensDeleteModal({
-  showExcluir,
+function CheckListItensUpdateModal({
+  showUpdate,
   closeModal,
   loading,
-  DeletarCheckListItens
+  handleSaveItens
 }) {
   return (
-    <Modal show={showExcluir} onHide={closeModal}>
+    <Modal show={showUpdate} onHide={closeModal}>
       <Modal.Header closeButton>
         <Modal.Title className="font-weight-bolder m-0">
-          Excluir todos itens do checklist?
+          Salvar o checklist?
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
@@ -23,7 +23,7 @@ function CheckListItensDeleteModal({
         <Button className="button-option-no" variant="secondary" onClick={closeModal}>
           NÃO
         </Button>
-        <Button className="button-option-yes" variant="danger" onClick={DeletarCheckListItens}>
+        <Button className="button-option-yes" variant="danger" onClick={handleSaveItens}>
           {!loading ? <span>SIM</span> : <Spinner animation="border" />}
         </Button>
       </Modal.Footer>
@@ -31,4 +31,4 @@ function CheckListItensDeleteModal({
   );
 }
 
-export default CheckListItensDeleteModal;
+export default CheckListItensUpdateModal;

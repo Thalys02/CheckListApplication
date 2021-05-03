@@ -1,6 +1,8 @@
 import React from "react";
 import { Modal, Button, Spinner } from "react-bootstrap";
 
+import "../styles.css";
+
 function CheckListDeleteModal({
   showExcluir,
   closeModal,
@@ -18,11 +20,11 @@ function CheckListDeleteModal({
         <p>Deseja excluir esse Registro ?</p>
       </Modal.Body>
       <Modal.Footer>
-        <Button variant="secondary" onClick={closeModal}>
-          Cancelar
+        <Button className="button-option-no" onClick={closeModal}>
+          Não
         </Button>
-        <Button variant="danger" onClick={DeletarTarefa}>
-          {!loading ? <span>Remover</span> : <Spinner animation="border" />}
+        <Button className="button-option-yes" onClick={DeletarTarefa}>
+          {!loading ? <span>Sim</span> : <Spinner animation="border" />}
         </Button>
       </Modal.Footer>
     </Modal>

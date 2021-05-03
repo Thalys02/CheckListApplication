@@ -1,0 +1,11 @@
+.button-option-no{
+    background-color: #FFFFFF !important;
+    color: #222943 !important;
+    font-weight: 700 !important;
+}
+.button-option-yes{
+    background-color: #222943 !important;
+    color: #FFFFFF !important;
+    font-weight: 700 !important;
+    border: 0 !important;
+}
